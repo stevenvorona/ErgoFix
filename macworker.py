@@ -1,21 +1,5 @@
 import time
 import os
-"""
-def sshin(cmd,*args):
-    file = open('/Users/steven/Desktop/password.txt')
-    password = str(file.readlines()[0])
-    pid, fd = os.forkpty()
-    if pid==0: # child
-        os.execlp(cmd,*args)
-    while True:
-        data = os.read(fd,1024)
-        print data
-        if "password:" in data:    # ssh prompt
-            os.write(fd,password +"\n")
-
-sshin("ssh", "ssh", "pi@172.20.10.6")
-os.system('echo hello')
-"""
 
 def calibrate():
     midbutt = 0
@@ -51,10 +35,10 @@ while True:
     workerbutt = float(worker[0])
     workerback = float(worker[1])
     if (workerbutt - midbutt < -8):
-        os.system('python ~/Desktop/Projects/ErgoFix/notifToMac.py \'Move\' \'Left\'')
+        os.system('python (path to notifToMac.py) \'Move\' \'Left\'')
     elif (workerbutt - midbutt > 8):
-        os.system('python ~/Desktop/Projects/ErgoFix/notifToMac.py \'Move\' \'Right\'')
+        os.system('python (path to notifToMac.py) \'Move\' \'Right\'')
     #elif (workerback < midback - 6):
     #    os.system('python ~/Desktop/Projects/ErgoFix/notifToMac.py \'Lean\' \'Forwards\'')
     elif (workerback - midback <-10):
-        os.system('python ~/Desktop/Projects/ErgoFix/notifToMac.py \'Lean\' \'Back\'')
+        os.system('python (path to notifToMac.py) \'Lean\' \'Back\'')
